@@ -41,45 +41,50 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(widget.title),
-        ),
-        body: Column(
-          // Column: 縦に並べるWidget
-          children: [
-            Text("初めてのテキスト"),
-            Text("2番目のテキスト"),
-            /**
-             * TextButton
-             * onPressed: ボタンを押された時の処理
-             * child: 1つだけ子要素を持つプロパティ
-             */
-            TextButton(
-                onPressed: () => {print("ボタンが押されたよ")}, child: Text("更新")),
-            Row(
-              /**
-               * mainAxisAlignment: 列の要素を指定する
-               * MainAxisAlignment.spaceAround: 列の要素を等間隔で指定するプロパティ
-               */
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Icon(
-                  Icons.favorite,
-                  color: Colors.pink,
-                  size: 24.0,
-                ),
-                Icon(
-                  Icons.audiotrack,
-                  color: Colors.green,
-                  size: 30.0,
-                ),
-                Icon(
-                  Icons.beach_access,
-                  color: Colors.blue,
-                  size: 36.0,
-                ),
-              ],
-            )
-          ],
-        ));
+            title: Row(
+          children: [Icon(Icons.create), Text('初めてのタイトル')],
+        )),
+        // Drawer: 画面スワイプ
+        drawer: Drawer(child: Center(child: Text("Drawer"))),
+        body: Text("初めてのテキスト")
+        // body: Column(
+        //   // Column: 縦に並べるWidget
+        //   children: [
+        //     Text("初めてのテキスト"),
+        //     Text("2番目のテキスト"),
+        //     /**
+        //      * TextButton
+        //      * onPressed: ボタンを押された時の処理
+        //      * child: 1つだけ子要素を持つプロパティ
+        //      */
+        //     TextButton(
+        //         onPressed: () => {print("ボタンが押されたよ")}, child: Text("更新")),
+        //     Row(
+        //       /**
+        //        * mainAxisAlignment: 列の要素を指定する
+        //        * MainAxisAlignment.spaceAround: 列の要素を等間隔で指定するプロパティ
+        //        */
+        //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+        //       children: [
+        //         Icon(
+        //           Icons.favorite,
+        //           color: Colors.pink,
+        //           size: 24.0,
+        //         ),
+        //         Icon(
+        //           Icons.audiotrack,
+        //           color: Colors.green,
+        //           size: 30.0,
+        //         ),
+        //         Icon(
+        //           Icons.beach_access,
+        //           color: Colors.blue,
+        //           size: 36.0,
+        //         ),
+        //       ],
+        //     )
+        //   ],
+        // )
+        );
   }
 }
