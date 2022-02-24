@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(const MyApp());
@@ -70,7 +71,20 @@ class _MyHomePageState extends State<MyHomePage> {
             if (_counter % 2 == 0)
               Text('偶数です', style: TextStyle(fontSize: 20, color: Colors.red)),
             if (_counter % 2 == 1)
-              Text('奇数です', style: TextStyle(fontSize: 20, color: Colors.red))
+              Text('奇数です', style: TextStyle(fontSize: 20, color: Colors.red)),
+            IconButton(
+                onPressed: () async {
+                  String url = Uri.encodeFull("https://www.google.co.jp");
+                  // String _url = "https://www.google.co.jp";
+                  try {
+                    if (await canLaunch(url)) {
+                      await launch(url);
+                    }
+                  } catch (e) {
+                    print(e.toString());
+                  }
+                },
+                icon: Icon(Icons.open_in_browser))
           ],
         ),
       ),
