@@ -19,6 +19,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
+// StatefulWidget: 状態が変わって画面も変更される場合これを継承
+// StatelessWidget: 静的ページの場合はこれを継承(基本的にはこれは使わない。)
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
 
