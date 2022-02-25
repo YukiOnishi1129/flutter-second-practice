@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+// import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(const MyApp());
@@ -38,11 +38,11 @@ class _MyHomePageState extends State<MyHomePage> {
   void _incrementCounter() {
     setState(() {
       _counter++;
-      if (_counter % 2 == 0) {
-        _type = "偶数";
-      } else {
-        _type = "奇数";
-      }
+      // if (_counter % 2 == 0) {
+      //   _type = "偶数";
+      // } else {
+      //   _type = "奇数";
+      // }
     });
   }
 
@@ -65,26 +65,27 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$_counter',
+              key: Key('counter'),
               style: Theme.of(context).textTheme.headline4,
             ),
             // if分岐
-            if (_counter % 2 == 0)
-              Text('偶数です', style: TextStyle(fontSize: 20, color: Colors.red)),
-            if (_counter % 2 == 1)
-              Text('奇数です', style: TextStyle(fontSize: 20, color: Colors.red)),
-            IconButton(
-                onPressed: () async {
-                  String url = Uri.encodeFull("https://www.google.co.jp");
-                  // String _url = "https://www.google.co.jp";
-                  try {
-                    if (await canLaunch(url)) {
-                      await launch(url);
-                    }
-                  } catch (e) {
-                    print(e.toString());
-                  }
-                },
-                icon: Icon(Icons.open_in_browser))
+            // if (_counter % 2 == 0)
+            //   Text('偶数です', style: TextStyle(fontSize: 20, color: Colors.red)),
+            // if (_counter % 2 == 1)
+            //   Text('奇数です', style: TextStyle(fontSize: 20, color: Colors.red)),
+            // IconButton(
+            //     onPressed: () async {
+            //       String url = Uri.encodeFull("https://www.google.co.jp");
+            //       // String _url = "https://www.google.co.jp";
+            //       try {
+            //         if (await canLaunch(url)) {
+            //           await launch(url);
+            //         }
+            //       } catch (e) {
+            //         print(e.toString());
+            //       }
+            //     },
+            //     icon: Icon(Icons.open_in_browser))
           ],
         ),
       ),
@@ -128,6 +129,7 @@ class _MyHomePageState extends State<MyHomePage> {
       //   ],
       // )
       floatingActionButton: FloatingActionButton(
+        key: Key('increment'),
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: Icon(Icons.add),
